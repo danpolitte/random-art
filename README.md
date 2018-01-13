@@ -14,3 +14,7 @@ C := A                (1/4)
   |  add(C,C)         (3/8)
   |  mult(C,C)        (3/8)
 ```
+
+
+## Reference
+Perrig, Adrian, and Dawn Song. "Hash visualization: A new technique to improve real-world security." International Workshop on Cryptographic Techniques and E-Commerce. 1999.
