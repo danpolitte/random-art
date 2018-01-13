@@ -4,6 +4,11 @@ import random
 class EExpression:
     def __init__(self, d_rem):
         # Single-choice
+
+        # Additional decrementing of the depth to keep the tree trimmed
+        while d_rem <= 0 and random.random() > 0.5:
+            d_rem -= 1
+
         self.args = [CExpression(d_rem-1), CExpression(d_rem-1), CExpression(d_rem-1)]
 
     def evaluate(self, x, y):
@@ -22,6 +27,10 @@ class CExpression:
             # Random choice between alternatives
             alts = ['A']*2 + ['add']*3 + ['mult']*3
             self.type = random.choice(alts)
+
+        # Additional decrementing of the depth to keep the tree trimmed
+        while d_rem <= 0 and random.random() > 0.5:
+            d_rem -= 1
 
         if self.type == 'A':
             self.args = [AExpression(d_rem-1)]
@@ -51,6 +60,10 @@ class AExpression:
         else:
             alts = ['num'] + ['x'] + ['y']
             self.type = random.choice(alts)
+
+        # Additional decrementing of the depth to keep the tree trimmed
+        while d_rem <= 0 and random.random() > 0.5:
+            d_rem -= 1
 
         if self.type == 'num':
             self.value = random.uniform(-1, 1)
