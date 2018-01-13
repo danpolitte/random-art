@@ -1,4 +1,5 @@
 import random
+from WeightedRandomizer import WeightedRandomizer
 
 
 class EExpression:
@@ -18,15 +19,21 @@ class EExpression:
         return arg_evals[0], arg_evals[1], arg_evals[2]
 
 
+
+c_expr_randomizer = WeightedRandomizer({
+    'A': 2,
+    'add': 3,
+    'mult': 3
+})
+
+
 class CExpression:
     def __init__(self, d_rem):
         # At maximum depth, default to simplest option
         if d_rem <= 0:
             self.type = 'A'
         else:
-            # Random choice between alternatives
-            alts = ['A']*2 + ['add']*3 + ['mult']*3
-            self.type = random.choice(alts)
+            self.type = c_expr_randomizer.random()
 
         # Additional decrementing of the depth to keep the tree trimmed
         while d_rem <= 0 and random.random() > 0.5:
@@ -51,6 +58,13 @@ class CExpression:
             return arg_evals[0] + arg_evals[1]
 
 
+a_expr_randomizer = WeightedRandomizer({
+    'num': 1,
+    'x': 1,
+    'y': 1
+})
+
+
 class AExpression:
     def __init__(self, d_rem):
         # At maximum depth, default to simplest option
@@ -58,8 +72,7 @@ class AExpression:
         if d_rem <= 0:
             self.type = 'num'
         else:
-            alts = ['num'] + ['x'] + ['y']
-            self.type = random.choice(alts)
+            self.type = a_expr_randomizer.random()
 
         # Additional decrementing of the depth to keep the tree trimmed
         while d_rem <= 0 and random.random() > 0.5:
