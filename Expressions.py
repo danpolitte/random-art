@@ -76,7 +76,7 @@ class CExpression:
         elif self.type == 'neg':
             return '-(' + str(self.args[0]) + ')'
         elif self.type == 'cond':
-            return '(if ' + str(self.args[0]) + '>0 then ' + str(self.args[1]) + ' else ' + str(self.args[1]) + ')'
+            return '(if ' + str(self.args[0]) + '>0 then ' + str(self.args[1]) + ' else ' + str(self.args[2]) + ')'
         elif self.type == 'add':
             return 'add(' + str(self.args[0]) + ', ' + str(self.args[1]) + ')'
         elif self.type == 'mult':
