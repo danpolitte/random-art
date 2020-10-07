@@ -92,16 +92,8 @@ a_expr_randomizer = WeightedRandomizer({
 
 class AExpression:
     def __init__(self, d_rem):
-        # At maximum depth, default to simplest option
-        # TODO: wait, does this distinction make sense for this level?
-        if d_rem <= 0:
-            self.type = 'num'
-        else:
-            self.type = a_expr_randomizer.random()
-
-        # Additional decrementing of the depth to keep the tree trimmed
-        while d_rem <= 0 and random.random() > 0.5:
-            d_rem -= 1
+        # This is a leaf node. Choose which kind.
+        self.type = a_expr_randomizer.random()
 
         if self.type == 'num':
             self.value = random.uniform(-1, 1)
