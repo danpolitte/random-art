@@ -1,6 +1,7 @@
 import Expressions
 from PIL import Image
 import sys
+import time
 
 
 class RandomArtImage:
@@ -39,8 +40,19 @@ def main(argv):
     size = int(argv[1])
     depth = int(argv[2])
     filename_out = argv[3]
+
+    start = time.perf_counter()
     random_art = RandomArtImage(depth)
+    end = time.perf_counter()
+    print('Time elapsed:', end - start)
+
+    start = time.perf_counter()
     random_art.render(size, filename_out)
+    end = time.perf_counter()
+
+    print(random_art.root_expr)
+
+    print('Time elapsed:', end - start)
 
 
 if __name__ == '__main__':
