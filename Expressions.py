@@ -68,7 +68,7 @@ class CExpression:
             # Division by 2 to map to [-1, 1]
             return (arg_evals[0] + arg_evals[1]) / 2
         elif self.type == 'mult':
-            return arg_evals[0] + arg_evals[1]
+            return arg_evals[0] * arg_evals[1]
 
     def __str__(self):
         if self.type == 'A':
