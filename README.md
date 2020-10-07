@@ -13,6 +13,8 @@ A := rand in [-1,1]   (1/3)
 C := A                (1/4)
   |  add(C,C)         (3/8)
   |  mult(C,C)        (3/8)
+  |  -C
+  |  if C>0 then C else C
 ```
 
 
