@@ -24,11 +24,11 @@ class EExpression:
 
 
 c_expr_randomizer = WeightedRandomizer({
-    'A': 2,
-    'neg': 2,
+    'A': 1,
+    'neg': 1,
     'cond': 1,
-    'add': 3,
-    'mult': 3
+    'add': 1,
+    'mult': 1
 })
 
 
